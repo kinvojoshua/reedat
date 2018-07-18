@@ -9,8 +9,14 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to welcome_path
     else
-      byebug
+
     end
+  end
+
+  def show
+    @post = Post.find(params[:id])
+    @current_user = User.find(session[:current_user_id])
+    @comments = @post.comments.where(comment_id: nil)
   end
 
   private

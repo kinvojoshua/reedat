@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   get '/welcome', to: 'landing#index'
   resources :posts
+  resources :comments
 end
