@@ -4,7 +4,7 @@
   <ul class='navbar'>
     <div class='logo'>
       <li><ion-icon class='logo-header' name="logo-reddit"></ion-icon></li>
-      <li><span class='logo-text'></span></li>
+      <li><span class='logo-text'>REEDAT</span></li>
     </div>
     <div class='list'>
       <li><ion-icon name="trending-up"></ion-icon></li>
@@ -15,7 +15,7 @@
     </div>
     <div class='button-group'>
       <li><%= button_to 'Log-In', new_user_path, :class => 'login-button', :method => :get%></li>
-      <li><%= button_to 'Sign-UP', new_user_path, :class => 'sign-up-button', :method => :get%></li>
+      <li><%= button_to 'Sign-Up', new_user_path, :class => 'sign-up-button', :method => :get%></li>
     </div>
   </ul>
 </nav>
@@ -76,17 +76,18 @@
 
 <div id='create-post' class='modal-create'>
   <div>
-    <a href="#modal-close" title="Close" class="modal-close">Close</a>
-    <%= form_with url: posts_path, local: true do |f| %>
+    <a href="#modal-close" title="Close" class="modal-close">X</a>
+    <span class='title'>Create Post</span>
+    <%= form_with url: posts_path, html: {class: "form-create"}, local: true do |f| %>
       <%= f.label :title %>
       <%= f.text_field :title, placeholder: "Title" %> <br>
 
       <%= f.label :body %>
-      <%= f.text_area :body %> <br>
+      <%= f.text_area :body, placeholder: "Blob" %> <br>
 
       <%= f.hidden_field :user_id, value: @user.id %>
 
-      <%= f.submit %>
+      <%= f.submit 'Post' %>
     <% end %>
   </div>
 </div>
