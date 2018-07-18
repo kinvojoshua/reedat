@@ -1,1 +1,21 @@
 <h1> HELLO THIS IS MY LANDING PAGE </h1>
+
+<h6> CURRENT LOGGED IN USER name: <%= @user.first_name %> <%= @user.last_name %> </h6>
+
+<%= form_with url: posts_path, local: true do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %> <br>
+
+  <%= f.label :body %>
+  <%= f.text_field :body %> <br>
+
+  <%= f.hidden_field :user_id, value: @user.id %>
+
+  <%= f.submit %>
+<% end %>
+<% @posts.each do |p| %>
+  <h2> POST CREATOR: <%= p.user.first_name %> <%= p.user.last_name %>
+  <h3> POST TITLE: <%= p.title %> </h3>
+  <h5> POST BODY: <%= p.body %> </h5>
+  <hr>
+<% end %>
