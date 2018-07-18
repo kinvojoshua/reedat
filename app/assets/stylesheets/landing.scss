@@ -372,16 +372,15 @@ body {
 form {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
   margin: 0;
-
   > input{
     background-color: #E5E5E5;
     border-radius: 5px;
     border: 0;
     width: 100%;
     font-size: 14px;
-    padding: 8px;
+    padding: 12px;
   }
 
   > input[name='commit'] {
