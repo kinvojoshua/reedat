@@ -10,7 +10,13 @@
 <% end %> 
 
 <container class='parentContainer'>
-<span class='logo'> NEW USER FORM </span>
+
+
+  <nav class='navBar'> 
+    <section class='logo'> </section>
+  </nav>
+
+
   <%= form_with model: @user, local: true do |f| %>
 
     <%= f.label :first_name %>

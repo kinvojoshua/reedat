@@ -33,10 +33,19 @@ body {
   box-shadow: 6px 0 100px #0000004e;
 }
 
-.logo{
+.navBar {
   grid-row: span 1;
   grid-column: span 4;
+
+  > .logo{
+    background: $red;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+  }
+
 }
+
 
 form {
   grid-row: span 2;
@@ -54,7 +63,8 @@ form {
     border: 0;
     width: 300px;
     height: 50px;
-
+    font-size: 16px;
+    padding-left: 10px;
   }
 
   > input[name='commit'] {
