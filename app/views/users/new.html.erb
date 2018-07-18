@@ -1,4 +1,4 @@
-<h1> NEW USER FORM </h1>
+
 <% if @user.errors.any? %>
   <div id= "errors">
       <ul>
@@ -7,22 +7,45 @@
         <% end %>
       </ul>
   </div>
-<% end %>
-<%= form_with model: @user, local: true do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %> <br> <br>
+<% end %> 
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %> <br> <br>
+<container class='parentContainer'>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %> <br> <br>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %> <br> <br>
+  <nav class='navBar'> 
+    <section class='logo'> </section>
+  </nav>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %> <br> <br>
 
-  <%= f.submit %>
-<% end %>
+  <%= form_with model: @user, local: true do |f| %>
+
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, placeholder: 'First Name'%> <br>
+
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, placeholder: 'Last Name' %> <br>
+
+    <%= f.label :username %>
+    <%= f.text_field :username, placeholder: 'Username' %> <br>
+    
+    <%= f.label :email %>
+    <%= f.text_field :email, placeholder: 'Email' %> <br>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: 'Password' %> <br>
+
+    <%= f.submit %>
+  <% end %>
+
+
+  <section class='mainContent'>
+  <h1>Join the worldwide conversation.</h1>
+  <h1>With a Reedat account, you can vote, comment, and post on all your desires within the Reedat community.</h1>
+  <h1>Sign up just below.</h1>
+  </section>
+  
+  <section class='userLogIn'>
+  <h1> Already a user? </h1>
+  <h1 class='l' > LOG IN </h1>
+  </section>
+</container>
