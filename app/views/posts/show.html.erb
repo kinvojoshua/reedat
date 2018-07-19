@@ -3,6 +3,9 @@
 <h2> <%= @post.user.username %>
 <h3> <%= @post.title %> </h3>
 <h5> <%= @post.body %> </h3>
+<% if @post.photos.url != nil %>
+  <%= image_tag @post.photos.big_thumb.url %>
+<% end %>
 
 <%= form_with url: comments_path, local: true do |f| %>
   <%= f.label :Comment %>

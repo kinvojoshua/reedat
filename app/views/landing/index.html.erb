@@ -45,7 +45,11 @@
         </div>
 
         <div class='picture'>
+          <% if post.photos.url != nil %>
+          <%= image_tag post.photos.thumb.url %>
+          <% else %>
           <%= post.body %>
+          <% end %>
         </div>
 
         <div class='options'>
@@ -90,8 +94,8 @@
       <%= f.text_field :title, placeholder: "Title" %> <br>
 
       <%= f.label :body %>
-      <%= f.text_area :body, placeholder: "Blob" %> <br>
-
+      <%= f.text_area :body, placeholder: "Body" %> <br>
+      <%= f.file_field :photos %>
       <%= f.hidden_field :user_id, value: @user.id %>
 
       <%= f.submit 'Post' %>
