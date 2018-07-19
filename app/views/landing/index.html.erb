@@ -59,6 +59,7 @@
             <li class='comments'>
               <ion-icon name="chatboxes"></ion-icon>
               <span>
+                <%= post.comments.count %>
                 <%= link_to 'Comments', post_path(post) %>
               </span>
             </li>
