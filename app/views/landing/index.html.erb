@@ -58,8 +58,8 @@
           <ul class='option-list'>
             <li class='comments'>
               <ion-icon name="chatboxes"></ion-icon>
-              <span><%= post.comments.count %>
-                <%= link_to 'comments', post_path(post) %>
+              <span>
+                <%= link_to 'Comments', post_path(post) %>
               </span>
             </li>
             <li class='share'>
@@ -76,7 +76,7 @@
   <% end %>
 </section>
 
-<% if @user != nil %>
+<% if @user !=   nil %>
 
 <section class='side-content'>
   <div class='popular'>
