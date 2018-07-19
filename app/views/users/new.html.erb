@@ -7,12 +7,12 @@
         <% end %>
       </ul>
   </div>
-<% end %> 
+<% end %>
 
 <container class='parentContainer'>
 
 
-  <nav class='navBar'> 
+  <nav class='navBar'>
     <section class='logo'> </section>
   </nav>
 
@@ -27,7 +27,7 @@
 
     <%= f.label :username %>
     <%= f.text_field :username, placeholder: 'Username' %> <br>
-    
+
     <%= f.label :email %>
     <%= f.text_field :email, placeholder: 'Email' %> <br>
 
@@ -43,9 +43,9 @@
   <h1>With a Reedat account, you can vote, comment, and post on all your desires within the Reedat community.</h1>
   <h1>Sign up just below.</h1>
   </section>
-  
+
   <section class='userLogIn'>
   <h1> Already a user? </h1>
-  <h1 class='l' > LOG IN </h1>
+  <h1 class='l' > <%= link_to 'LOGIN', login_path%> </h1>
   </section>
 </container>
