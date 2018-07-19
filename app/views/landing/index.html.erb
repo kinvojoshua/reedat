@@ -1,1 +1,99 @@
-<h1> HELLO THIS IS MY LANDING PAGE </h1>
+
+<%= stylesheet_link_tag 'landing', media: 'all' %>
+<nav class='top-nav'>
+  <ul class='navbar'>
+    <div class='logo'>
+      <li><ion-icon class='logo-header' name="logo-reddit"></ion-icon></li>
+      <li><span class='logo-text'>REEDAT</span></li>
+    </div>
+    <div class='list'>
+      <li><ion-icon name="trending-up"></ion-icon></li>
+      <li><ion-icon name="stats"></ion-icon></li>
+      <li class='search'>
+        <input class='search-box' type='text' placeholder='Search' />
+      </li>
+    </div>
+    <% if @user == nil %>
+    <div class='button-group'>
+      <li><%= button_to 'Log-In', new_user_path, :class => 'login-button', :method => :get%></li>
+      <li><%= button_to 'Sign-Up', new_user_path, :class => 'sign-up-button', :method => :get%></li>
+    </div>
+    <% end %>
+  </ul>
+</nav>
+
+<section class='main-content'>
+  <% @posts.each do |post| %>
+    <div class='content'>
+      <div class='side-bar'>
+        <ion-icon name="arrow-round-up" class='arrow-up'></ion-icon>
+        <span>14.5k</span>
+        <ion-icon name="arrow-round-down" class='arrow-down'></ion-icon>
+      </div>
+      <div class='inner-content'>
+        <div class='user'>
+          <div class='icon'></div>
+          <span class='thread'>r/hello</span>
+          <span class='posted-by'>Posted by u/<%= post.user.username %> 1 hour ago </span>
+        </div>
+
+        <div class='title'>
+          <%= post.title %>
+        </div>
+
+        <div class='picture'>
+          <%= post.body %>
+        </div>
+
+        <div class='options'>
+          <ul class='option-list'>
+            <li class='comments'>
+              <ion-icon name="chatboxes"></ion-icon>
+              <span>483 comments
+                <%= link_to 'comments', post_path(post) %>
+              </span>
+            </li>
+            <li class='share'>
+              <ion-icon name="share-alt"></ion-icon>
+              <span>Share</span>
+            </li>
+            <li class='more'>
+              ...
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</section>
+
+<% if @user != nil %>
+
+<section class='side-content'>
+  <div class='popular'>
+    <div class='head'></div>
+    <div class='description'>Your personal Reddit frontpage. Come here to check in with your favorite communities.</div>
+    <div class='create-post'>
+      <a href='#create-post'><button class='create-button'>Create Post</button> </a>
+    </div>
+  </div>
+</section>
+<div id='create-post' class='modal-create'>
+  <div>
+    <a href="#modal-close" title="Close" class="modal-close">X</a>
+    <span class='title'>Create Post</span>
+    <%= form_with url: posts_path, html: {class: "form-create"}, local: true do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title, placeholder: "Title" %> <br>
+
+      <%= f.label :body %>
+      <%= f.text_area :body, placeholder: "Blob" %> <br>
+
+      <%= f.hidden_field :user_id, value: @user.id %>
+
+      <%= f.submit 'Post' %>
+    <% end %>
+  </div>
+</div>
+<% end %>
+<script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
