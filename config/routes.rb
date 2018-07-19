@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/login', to: 'landing#login'
   post '/login', to: 'landing#authenticate'
   post '/logout', to: 'landing#logout'
+  post '/vote', to: 'votes#create'
   resources :posts
   resources :comments
 end

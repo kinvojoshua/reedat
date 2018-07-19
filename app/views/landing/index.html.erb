@@ -29,8 +29,10 @@
   <% @posts.each do |post| %>
     <div class='content'>
       <div class='side-bar'>
-        <ion-icon name="arrow-round-up" class='arrow-up'></ion-icon>
-        <span>14.5k</span>
+        <%= link_to vote_path(post), method: :post do %>
+          <ion-icon name="arrow-round-up" class='arrow-up'></ion-icon>
+        <% end %>
+        <span> <%= post.votes.where(upvote: true).count %></span>
         <ion-icon name="arrow-round-down" class='arrow-down'></ion-icon>
       </div>
       <div class='inner-content'>
