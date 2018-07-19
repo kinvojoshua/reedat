@@ -172,27 +172,27 @@ body {
     margin: 12px 0 0 0;
 
     > .comment-bar ion-icon {
-      font-size: 16px;
+      font-size: 14px;
       color: $text-mute;
       padding: 0;
     }
     
     > .comment-bar span {
-      font-size: 16px;
+      font-size: 14px;
       margin: 0 6px 0 2px;
       color: $text-mute;
       text-decoration: none;
     }
 
     > .share ion-icon {
-      font-size: 16px;
+      font-size: 14px;
       margin: 0 2px 0 6px;
       color: $text-mute;
       padding: 0;
     }
 
     > .share span {
-      font-size: 16px;
+      font-size: 14px;
       color: $text-mute;
       padding: 0;
     }
@@ -322,11 +322,8 @@ body {
 blockquote  {
   display: flex;
   flex-direction: row; 
-  margin-left: 8px;
+  margin-left: 4px;
 
-}
-blockquote:nth-child(1) {
-  margin: 0; 
 }
 
 .comments {
