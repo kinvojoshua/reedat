@@ -359,6 +359,27 @@ blockquote  {
   }
 }
 
+.dropdown-comment{display:none}
+
+.dropdown-comment:checked ~ .display-comment{
+  max-height:300px;
+  transition:max-height 0.5s ease-in;
+}
+
+ul.display-comment{
+  max-height:0;
+  padding:0;
+  overflow:hidden;
+  list-style-type:none;
+  transition:max-height 0.5s ease-out;
+  position:absolute;
+}
+ul.display-comment li a{
+  display:block;
+  transition:background .3s;
+  white-space:nowrap;
+}
+
 
 
  

@@ -12,20 +12,21 @@
       <ul class='option-list'>
         <li class='comment-bar'>
           <ion-icon name="chatboxes"></ion-icon>
-          <span>
-            Comment
-          </span>
+          <input id="comment" type="checkbox" name="menu" class='dropdown-comment'/>
+          <label for="comment">comment</label>
+          <ul class="display-comment">
+            <%= form_with url: comments_path, local: true do |f| %>
+              <%= f.text_field :body %>
+              <%= f.hidden_field :comment_id, :value => comment.id %>
+              <%= f.hidden_field :post_id, :value => comment.post_id %>
+              <%= f.hidden_field :user_id, :value => user.id %>
+              <%= f.submit %>
+            <% end %>
+          </ul>
         </li>
       </ul>
     </div>
-
-    <%= form_with url: comments_path, local: true do |f| %>
-      <%= f.text_field :body %>
-      <%= f.hidden_field :comment_id, :value => comment.id %>
-      <%= f.hidden_field :post_id, :value => comment.post_id %>
-      <%= f.hidden_field :user_id, :value => user.id %>
-      <%= f.submit %>
-    <% end %>
+    
 
     
     <% comment.comments.each do |comment| %>
