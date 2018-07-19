@@ -1,7 +1,14 @@
 <blockquote>
+  <div class='arrows'>
+    <ion-icon name="arrow-round-up" class='arrow-up'></ion-icon>
+    <ion-icon name="arrow-round-down" class='arrow-down'></ion-icon>
+    <div class='vertical-line'></div>
+  </div>
 
-  <h4> commentor: <%= comment.user.username %> </h4>
-  <h5> comment body: <%= comment.body %>
+  <div class='comments'>
+  <span class='username'><a href='#'><%= comment.user.username %> </a>7.3k points 2 hours ago</span>
+  <span class='comment-body'><%= comment.body %></span>
+ 
     <%= form_with url: comments_path, local: true do |f| %>
       <%= f.text_field :body %>
       <%= f.hidden_field :comment_id, :value => comment.id %>
@@ -13,6 +20,10 @@
     <% comment.comments.each do |comment| %>
     <%= render partial: 'comment', :locals => {:comment => comment, :user => user} %>
     <% end %>
+    </div>
 
   </blockquote>
-<hr>
+
+
+<script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
+
