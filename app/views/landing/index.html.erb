@@ -15,10 +15,13 @@
     </div>
     <% if @user == nil %>
     <div class='button-group'>
-      <li><%= button_to 'Log-In', new_user_path, :class => 'login-button', :method => :get%></li>
+      <li><%= button_to 'Log-In', login_path, :class => 'login-button', :method => :get%></li>
       <li><%= button_to 'Sign-Up', new_user_path, :class => 'sign-up-button', :method => :get%></li>
     </div>
+    <% else %>
+      <li><%= button_to 'Logout', logout_path, :class => 'login-button', :method => :post%>
     <% end %>
+
   </ul>
 </nav>
 
