@@ -12,6 +12,8 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/public
+/config/database.yml
 
 # Ignore uploaded files in development
 /storage/*
@@ -24,3 +26,5 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+/config/database.yml
