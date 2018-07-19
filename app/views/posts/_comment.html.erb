@@ -1,0 +1,18 @@
+<blockquote>
+
+  <h4> commentor: <%= comment.user.username %> </h4>
+  <h5> comment body: <%= comment.body %>
+    <%= form_with url: comments_path, local: true do |f| %>
+      <%= f.text_field :body %>
+      <%= f.hidden_field :comment_id, :value => comment.id %>
+      <%= f.hidden_field :post_id, :value => comment.post_id %>
+      <%= f.hidden_field :user_id, :value => user.id %>
+      <%= f.submit %>
+    <% end %>
+
+    <% comment.comments.each do |comment| %>
+    <%= render partial: 'comment', :locals => {:comment => comment, :user => user} %>
+    <% end %>
+
+  </blockquote>
+<hr>
