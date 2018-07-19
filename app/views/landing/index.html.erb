@@ -23,7 +23,7 @@
 </nav>
 
 <section class='main-content'>
-  <% @posts.each do |p| %>
+  <% @posts.each do |post| %>
     <div class='content'>
       <div class='side-bar'>
         <ion-icon name="arrow-round-up" class='arrow-up'></ion-icon>
@@ -34,15 +34,15 @@
         <div class='user'>
           <div class='icon'></div>
           <span class='thread'>r/hello</span>
-          <span class='posted-by'>Posted by u/<%= p.user.username %> 1 hour ago </span>
+          <span class='posted-by'>Posted by u/<%= post.user.username %> 1 hour ago </span>
         </div>
 
         <div class='title'>
-          <%= p.title %>
+          <%= post.title %>
         </div>
 
         <div class='picture'>
-          <%= p.body %>
+          <%= post.body %>
         </div>
 
         <div class='options'>
@@ -50,7 +50,7 @@
             <li class='comments'>
               <ion-icon name="chatboxes"></ion-icon>
               <span>483 comments
-                <%= link_to 'comments' %>
+                <%= link_to 'comments', post_path(post) %>
               </span>
             </li>
             <li class='share'>
