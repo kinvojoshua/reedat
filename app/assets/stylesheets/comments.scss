@@ -14,7 +14,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 8% auto;
-  grid-template-columns: auto 500px;
+  grid-template-columns: 70% 500px;
   grid-column-gap: 30px;
   grid-row-gap: 20px;
   font-family: $font-family;
@@ -121,7 +121,7 @@ body {
 }
 .content {
   display: grid;
-  grid-template-columns: 5% auto;
+  grid-template-columns: 5% 95%;
   > .side-bar {
     grid-column: 1;
   }
@@ -338,6 +338,7 @@ blockquote  {
 .comments {
   width: 100%;
   padding: 4px 12px;
+
   > .username {
     display: block;
     font-size: 12px;
@@ -348,6 +349,13 @@ blockquote  {
     margin-right: 5px;
   }
 
+  > .comment-body {
+      width: 100%;
+      overflow-wrap: break-word;
+      hyphens: auto;
+      text-overflow: ellipsis;
+      overflow: hidden;
+  }
 
      
 }
