@@ -5,6 +5,7 @@
     @import url('https://fonts.googleapis.com/css?family=Roboto');
     $background-color: #E5E5E5; 
     $main-button: #32a2d1;
+    $red: #B13232;
 
     $text-mute: #B2B2B2;
     body {
@@ -111,6 +112,22 @@
         background-color: $background-color;
         min-width: 500px;
       }
+    }
+
+    .user-button {
+      background-color: $red;
+      box-sizing: border-box;
+      font-weight: 550;
+      letter-spacing: 0.7px;
+      line-height: 24px;
+      color: white;
+      border: 0;
+      border-radius: 5px;
+      padding: 5px 16px;
+      margin: 0 15px;
+      font-size: 16px;
+      width: 100px;
+      border: 1px solid $red
     }
 
 

@@ -19,8 +19,10 @@
       <li><%= button_to 'Sign-Up', new_user_path, :class => 'sign-up-button', :method => :get%></li>
     </div>
     <% else %>
-      <li> <%= link_to @user.username, users_me_path, :method => :post %> </li>
+    <div class='button-group'>
+      <li><%= button_to @user.username, users_me_path,:class =>'user-button', :method => :post %> </li>
       <li><%= button_to 'Logout', logout_path, :class => 'login-button', :method => :post%> </li>
+    </div>
     <% end %>
 
   </ul>
