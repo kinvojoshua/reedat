@@ -40,7 +40,7 @@
 
         <div class='picture'>
           <% if @post.photos.url != nil %>
-          <%= image_tag post.photos.thumb.url %>
+          <%= image_tag @post.photos.thumb.url %>
           <% else %>
           <%= @post.body %>
           <% end %>
