@@ -197,11 +197,17 @@
         font-size: 24px;
         padding: 4px;
       }
+      > a ion-icon {
+        font-size: 24px;
+        padding: 4px;
+      }
       > span {
         font-size: 12px;
         font-weight: 600;
         padding: 0;
         margin: 0;
+        text-align: center;
+        display: block;
       }
       
     }
@@ -237,7 +243,7 @@
         }
         
         > .comments span a {
-          font-size: 16px;
+          font-size: 14px;
           margin: 0 6px 0 2px;
           color: $text-mute;
           text-decoration: none;
@@ -251,7 +257,7 @@
         }
 
         > .share span {
-          font-size: 16px;
+          font-size: 14px;
           color: $text-mute;
           padding: 0;
         }
@@ -261,6 +267,10 @@
           font-weight: bold;
           padding: 0 0 0 12px;
           color: $text-mute ;
+        }
+        > .comments span {
+          color: $text-mute !important;
+          font-size: 14px;
         }
 
     }
