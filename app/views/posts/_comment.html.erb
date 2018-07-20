@@ -27,7 +27,7 @@
       <%= f.submit %>
     <% end %>
 
-    
+
     <% comment.comments.each do |comment| %>
     <%= render partial: 'comment', :locals => {:comment => comment, :user => user} %>
     <% end %>
@@ -37,4 +37,3 @@
 
 
 <script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
-
