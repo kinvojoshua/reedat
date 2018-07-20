@@ -1,0 +1,8 @@
+<h1> wa </h1>
+
+<h3> username: <%= @user.username %>
+     total post: <%= @user.posts.count %>
+     total comments: <%= @user.comments.count %>
+     total votes: <%= @user.votes.count %>
+     recent post: <%= link_to @user.posts.last.title, post_path(@user.posts.last) %>
+</h3>

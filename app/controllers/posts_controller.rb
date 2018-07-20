@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
     if @post.save
       redirect_to welcome_path
-      
+
     end
   end
 

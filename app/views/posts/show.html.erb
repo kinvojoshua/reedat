@@ -2,7 +2,11 @@
 <nav class='top-nav'>
   <ul class='navbar'>
     <div class='logo'>
-      <li><ion-icon class='logo-header' name="logo-reddit"></ion-icon></li>
+      <li>
+        <%= link_to welcome_path do %>
+        <ion-icon class='logo-header' name="logo-reddit"></ion-icon>
+        <% end %>
+      </li>
       <li><span class='logo-text'>r/<%= @post.user.username %></span></li>
       <li><span class='post-body'><%= @post.body %></span></li>
     </div>
@@ -35,7 +39,11 @@
         </div>
 
         <div class='picture'>
+          <% if @post.photos.url != nil %>
+          <%= image_tag @post.photos.thumb.url %>
+          <% else %>
           <%= @post.body %>
+          <% end %>
         </div>
 
         <div class='options'>

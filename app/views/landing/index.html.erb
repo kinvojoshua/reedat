@@ -19,7 +19,10 @@
       <li><%= button_to 'Sign-Up', new_user_path, :class => 'sign-up-button', :method => :get%></li>
     </div>
     <% else %>
-      <li><%= button_to 'Logout', logout_path, :class => 'login-button', :method => :post%>
+    <div class='button-group'>
+      <li><%= button_to @user.username, users_me_path,:class =>'user-button', :method => :post %> </li>
+      <li><%= button_to 'Logout', logout_path, :class => 'login-button', :method => :post%> </li>
+    </div>
     <% end %>
 
   </ul>
@@ -59,6 +62,7 @@
             <li class='comments'>
               <ion-icon name="chatboxes"></ion-icon>
               <span>
+                <%= post.comments.count %>
                 <%= link_to 'Comments', post_path(post) %>
               </span>
             </li>
