@@ -19,7 +19,8 @@
       <li><%= button_to 'Sign-Up', new_user_path, :class => 'sign-up-button', :method => :get%></li>
     </div>
     <% else %>
-      <li><%= button_to 'Logout', logout_path, :class => 'login-button', :method => :post%>
+      <li> <%= link_to @user.username, users_me_path, :method => :post %> </li>
+      <li><%= button_to 'Logout', logout_path, :class => 'login-button', :method => :post%> </li>
     <% end %>
 
   </ul>
