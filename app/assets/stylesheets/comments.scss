@@ -170,7 +170,7 @@ body {
     list-style: none;
     padding: 0;
     margin: 12px 0 0 0;
-
+    width: 100%;
     > .comment-bar ion-icon {
       font-size: 14px;
       color: $text-mute;
@@ -202,6 +202,13 @@ body {
       font-weight: bold;
       padding: 0 0 0 12px;
       color: $text-mute ;
+    }
+    > .show-comment-field {
+      width: 100%;
+    }
+    > .show-comment-field ion-icon {
+      font-size: 16px;
+      color: $text-mute;
     }
 
 }
@@ -253,19 +260,21 @@ body {
   }
 }
 
+form {
+  padding: 12px 12px 0 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+form label {
+  font-size: 14px;
+  color: $text-mute;
+}
+
 .comment-field {
   width: 100%;
   margin-top: 20px;
-  > form {
-    padding: 12px 12px 0 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  > form label {
-    font-size: 14px;
-    color: $text-mute;
-  }
+ 
   > form textarea {
     border: 1px solid rgba(0,0,0,0.3);
     border-radius: 5px;
@@ -327,6 +336,7 @@ blockquote  {
 }
 
 .comments {
+  width: 100%;
   padding: 4px 12px;
   > .username {
     display: block;
@@ -337,12 +347,9 @@ blockquote  {
     text-decoration: none;
     margin-right: 5px;
   }
-  > .comment-body {
-    display: block;
-    padding-top: 5px;
-  }
-    
 
+
+     
 }
 .arrows {
   display: flex;
@@ -358,8 +365,39 @@ blockquote  {
     border-right: 2px solid rgb(206, 206, 206);
   }
 }
+details summary::-webkit-details-marker {
+  display:none;
+}
 
+details {
+  display: inline-flex;
+  width: 80%;
+  > summary {
+    color: $text-mute;
+    font-size: 14px;
+  }
 
+  > form textarea {
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 5px;
+    resize: none;
+    height: 40px;
+    min-height: 80px;
+    padding: 8px;
+    margin: 8px 0;
+  }
 
- 
+  > form input[type='submit'] {
+    background-color: $main-button;
+    padding: 8px;
+    width: 100px;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid $main-button;
+    align-self: flex-end;
+    border-radius: 5px;
+  }
+}
+
 
