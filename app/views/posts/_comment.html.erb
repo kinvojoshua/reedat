@@ -6,29 +6,25 @@
   </div>
 
   <div class='comments'>
-  <span class='username'><a href='#'><%= comment.user.username %> </a>7.3k points 2 hours ago</span>
+  <span class='username'><a href='#'><%= comment.user.username %> </a></span>
   <span class='comment-body'><%= comment.body %></span>
     <div class='options'>
       <ul class='option-list'>
-        <li class='comment-bar'>
+        <li class='show-comment-field'>
           <ion-icon name="chatboxes"></ion-icon>
-          <input id="comment" type="checkbox" name="menu" class='dropdown-comment'/>
-          <label for="comment">comment</label>
-          <ul class="display-comment">
+          <details>
+            <summary>Comment</summary>
             <%= form_with url: comments_path, local: true do |f| %>
-              <%= f.text_field :body %>
+              <%= f.text_area :body, placeholder: 'what are your thoughts?' %>
               <%= f.hidden_field :comment_id, :value => comment.id %>
               <%= f.hidden_field :post_id, :value => comment.post_id %>
               <%= f.hidden_field :user_id, :value => user.id %>
-              <%= f.submit %>
+              <%= f.submit 'Comment' %>
             <% end %>
-          </ul>
+          </details>
         </li>
       </ul>
     </div>
-    
-
-    
     <% comment.comments.each do |comment| %>
     <%= render partial: 'comment', :locals => {:comment => comment, :user => user} %>
     <% end %>
