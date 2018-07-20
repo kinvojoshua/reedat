@@ -39,7 +39,11 @@
         </div>
 
         <div class='picture'>
-        <%= image_tag @post.photos.big_thumb.url %>
+          <% if @post.photos.url != nil %>
+          <%= image_tag post.photos.thumb.url %>
+          <% else %>
+          <%= @post.body %>
+          <% end %>
         </div>
 
         <div class='options'>
