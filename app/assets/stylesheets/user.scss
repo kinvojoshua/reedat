@@ -158,6 +158,10 @@ form {
     padding: 25px 0;
     width: 70%;
     justify-content: space-around;
+
+    > h1 {
+      font-size: 24px;
+    }
   }
 
   .userLogIn {
