@@ -9,19 +9,25 @@
     <div class='list'>
       <li><ion-icon name="trending-up"></ion-icon></li>
       <li><ion-icon name="stats"></ion-icon></li>
+      <li><a href='#create-post'><ion-icon name="create" ></ion-icon></a></li>
       <li class='search'>
         <input class='search-box' type='text' placeholder='Search' />
       </li>
     </div>
     <% if @user == nil %>
-    <div class='button-group'>
+    <div class="button-group">
       <li><%= button_to 'Log-In', login_path, :class => 'login-button', :method => :get%></li>
       <li><%= button_to 'Sign-Up', new_user_path, :class => 'sign-up-button', :method => :get%></li>
     </div>
     <% else %>
     <div class='button-group'>
-      <li><%= button_to @user.username, users_me_path,:class =>'user-button', :method => :post %> </li>
-      <li><%= button_to 'Logout', logout_path, :class => 'login-button', :method => :post%> </li>
+      <li class='dropdown-nav'>
+        <%= link_to @user.username, users_me_path,:class =>'', :method => :post %> 
+        <ul class='dropdown'>
+        <li><%= link_to 'Logout', logout_path, :class => '', :method => :post%></li>
+        </ul>  
+      </li>
+      <li class='user-icon'></li>
     </div>
     <% end %>
 
