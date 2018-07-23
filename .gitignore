@@ -33,3 +33,4 @@
 .rubocop_todo.yml
 .vscode
 .gitignore
+.DS_Store
