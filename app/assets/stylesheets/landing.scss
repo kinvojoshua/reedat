@@ -72,6 +72,45 @@
       }
     }
 
+    .user-icon {
+      font-size: 22px;
+      background-color: $main-button;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      color: white;
+    }
+
+    .dropdown-nav {
+      position: relative;
+    }
+
+    .dropdown-nav > a {
+      text-decoration: none;
+      padding: 8px 12px;
+      line-height: 2;
+      color: black;
+    }
+    .dropdown {
+      position: absolute;
+      list-style: none;
+      display: none;
+      padding: 0;
+      margin: 0;
+      background: white;
+      padding: 15px 30px;
+    }
+
+
+    .dropdown li a {
+      text-decoration: none;
+      display: inline;
+      color: black;
+    }
+    .dropdown-nav:hover > .dropdown {
+      display: block;
+    }
+
     .logo {
       display: flex;
       justify-content: space-between;
@@ -79,7 +118,7 @@
         font-size: 22px;
         background-color: $main-button;
         border-radius: 50%;
-        padding: 8px;
+        padding: 6px;
         width: 30px;
         height: 30px;
         color: white;
@@ -93,6 +132,7 @@
       }
     }
 
+
     .list {
       display: flex;
       padding: 8px 0;
@@ -100,6 +140,9 @@
         font-size: 24px;
         font-weight: 400;
         padding: 4px;
+      }
+      > li a {
+        color: black;
       }
       > li ion-icon:hover {
         transition: background-color 0.8s ease;
@@ -111,7 +154,7 @@
         margin: 0 12px;
         border: 0;
         background-color: $background-color;
-        width: 500px;
+        width: 300px;
         min-width: 200px;
       }
     }
@@ -145,7 +188,8 @@
       padding: 5px 16px;
       margin: 0 15px;
       font-size: 14px;
-      width: 100px;
+      min-width: 20px;
+      max-width: 100px;
       border: 1px solid $main-button
     }
 
@@ -161,7 +205,8 @@
       padding: 5px 16px;
       margin: 0 15px;
       font-size: 14px;
-      width: 100px;
+      min-width: 20px;
+      max-width: 100px;
       border: 1px solid $main-button
     }
 
