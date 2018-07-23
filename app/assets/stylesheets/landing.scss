@@ -110,7 +110,8 @@
         margin: 0 12px;
         border: 0;
         background-color: $background-color;
-        min-width: 500px;
+        width: 500px;
+        min-width: 200px;
       }
     }
 
@@ -265,12 +266,18 @@
         > .more {
           font-size: 20px;
           font-weight: bold;
-          padding: 0 0 0 12px;
+          
           color: $text-mute ;
         }
         > .comments span {
           color: $text-mute !important;
           font-size: 14px;
+        }
+
+        > .delete span {
+          color: $text-mute;
+          font-size: 14px;
+          padding: 0 0 0 12px;
         }
 
     }
@@ -462,35 +469,56 @@
 
     }
 
-    @media screen and (max-width: 800px) {
+@media (max-width: 768px) {
+  body {
+    background-color: $background-color;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 8% auto;
+    grid-template-columns: 100%;
+    grid-column-gap: 0;
+    grid-row-gap: 20px;
+    font-family: 'Roboto', sans-serif;
+  }
 
-      body {
-        background-color: pink;
-        padding: 0;
-        margin: 0;
-        height: 100vh;
-        width: 100vh;
-        display: grid;
-        grid-template-rows: 8% auto;
-        grid-template-columns: auto 600px;
-        grid-column-gap: 30px;
-        grid-row-gap: 20px;
-        font-family: 'Roboto', sans-serif;
-      }
+  .top-nav {
+    grid-row: 1;
+    grid-column: 1;
+    background-color: white; 
+  }
 
-      .side-content {
-        grid-row: 2;
-        grid-column: 2;
-        width: 50%;
-        > .popular {
-          background-color: white;
-          border-radius: 10px;
-        }
-  
-        > .advertisement {
-          background-color: yellow;
-        }
-      }
+  .main-content {
+    grid-row: 2;
+    grid-column: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+    > .content {
+      background-color: white;
+      width: 90%;
+      border-radius: 10px;
+      margin-bottom: 20px;
     }
+  }
+
+  .side-content {
+    display: none;
+  }
+
+  .list {
+    > .search input {
+      padding: 8px;
+      margin: 0 12px;
+      border: 0;
+      background-color: $background-color;
+      max-width: 200px;
+    }
+  }
+
+
+}
 
