@@ -40,19 +40,12 @@ body {
   grid-column: span 4;
 
   > .logo{
-    background: $blue;
+    background: $red;
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
-  a {
-    color: white;
-    font-weight: bold;
-  }
 }
 
 
@@ -138,13 +131,16 @@ form {
   body{
     background-image: none;
     background-color: $grey;
+    height: 100%;
   }
 
   .parentContainer {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     padding: 20px;
+    
   }
 
   form {
@@ -153,61 +149,17 @@ form {
   }
 
   .mainContent {
-    padding: 15px 0;
+    padding: 25px 0;
     width: 70%;
     justify-content: space-around;
+
+    > h1 {
+    font-size: 24px;
+    }
   }
 
   .userLogIn {
     padding: 15px 0;
   }
 
-}
-//Sign Up page CSS below
-.userNew {
-  grid-row: span 1;
-  grid-column: span 4;
-  display: flex;
-  justify-content: start;
-  padding: 15px 5px 5px 0;
-
-  > h1 {
-    font-size: 18px;
-    padding: 5px 5px 5px 0;
-  }
-
-  > .l {
-    color: $blue;
-    padding: 5px;
-    display: block;
-  }
-}
-
-.forgot {
-  grid-row: span 1;
-  grid-column: span 1;
-  padding: 15px 5px 5px 0;
-  margin-top: -10%;
-
-  > .l {
-    color: $blue;
-    padding: 5px;
-    font-weight: none;
-  }
-}
-
-form[action='/login'] {
-  grid-row: span 1;
-  grid-column: span 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
-  width: 325px;
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-  color: $blue;
 }
