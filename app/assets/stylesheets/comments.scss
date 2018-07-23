@@ -119,6 +119,72 @@ body {
     min-width: 500px;
   }
 }
+<<<<<<< Updated upstream
+=======
+
+.user-button {
+  background-color: $red;
+  box-sizing: border-box;
+  font-weight: 550;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px 16px;
+  margin: 0 15px;
+  font-size: 16px;
+  width: 100px;
+  border: 1px solid $red;
+}
+
+
+.login-button {
+  background-color: white;
+  box-sizing: border-box;
+  font-weight: 550;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+  color: $main-button;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px 16px;
+  margin: 0 15px;
+  font-size: 14px;
+  width: 100px;
+  border: 1px solid $main-button
+}
+
+.sign-up-button {
+  background-color: $main-button;
+  box-sizing: border-box;
+  font-weight: 550;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px 16px;
+  margin: 0 15px;
+  font-size: 14px;
+  width: 100px;
+  border: 1px solid $main-button
+}
+
+.login-button:hover {
+  transition: all 0.5s ease;
+  background-color: $main-button;
+  color: white;
+}
+
+.sign-up-button:hover {
+  transition: all 0.5s ease;
+  background-color: white;
+  color: $main-button;
+  border: 1px solid $main-button
+}
+
+>>>>>>> Stashed changes
 .content {
   display: grid;
   grid-template-columns: 5% 95%;
