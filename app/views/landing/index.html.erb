@@ -13,15 +13,15 @@
         <input class='search-box' type='text' placeholder='Search' />
       </li>
     </div>
-    <% if @user == nil %>
+    <% if !user_signed_in? %>
     <div class='button-group'>
       <li><%= button_to 'Log-In', login_path, :class => 'login-button', :method => :get%></li>
       <li><%= button_to 'Sign-Up', new_user_path, :class => 'sign-up-button', :method => :get%></li>
     </div>
     <% else %>
     <div class='button-group'>
-      <li><%= button_to @user.username, users_me_path,:class =>'user-button', :method => :post %> </li>
-      <li><%= button_to 'Logout', logout_path, :class => 'login-button', :method => :post%> </li>
+      <li><%= button_to current_user.username, users_me_path,:class =>'user-button', :method => :post %> </li>
+      <li><%= button_to 'Logout', destroy_user_session_path, :class => 'login-button', :method => :delete%> </li>
     </div>
     <% end %>
 
@@ -80,7 +80,7 @@
   <% end %>
 </section>
 
-<% if @user !=   nil %>
+<% if user_signed_in? %>
 
 <section class='side-content'>
   <div class='popular'>
@@ -102,7 +102,7 @@
       <%= f.label :body %>
       <%= f.text_area :body, placeholder: "Body" %> <br>
       <%= f.file_field :photos %>
-      <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.hidden_field :user_id, value: current_user.id%>
 
       <%= f.submit 'Post' %>
     <% end %>
