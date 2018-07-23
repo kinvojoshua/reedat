@@ -4,12 +4,12 @@
 <nav class='top-nav'>
   <ul class='navbar'>
     <div class='logo'>
-      <li><ion-icon class='logo-header' name="logo-reddit"></ion-icon></li>
-      <li><span class='logo-text'>REEDAT</span></li>
+      <li> <%= link_to welcome_path do %> <ion-icon class='logo-header' name="logo-reddit"> </ion-icon> <% end%> </li>
+      <li> <span class='logo-text'>REEDAT</span> </li>
     </div>
     <div class='list'>
-      <li><ion-icon name="trending-up"></ion-icon></li>
-      <li><ion-icon name="stats"></ion-icon></li>
+      <li> <ion-icon name="trending-up"> </ion-icon> </li>
+      <li> <ion-icon name="stats"> </ion-icon> </li>
       <li class='search'>
         <input class='search-box' type='text' placeholder='Search' />
       </li>
@@ -50,5 +50,36 @@
         <li>Recent post: <%= link_to current_user.posts.last.title, post_path(current_user.posts.last) %></li>
       </div>
     </div>
-  </div
+  </div>
+
 </section>
+
+<section class='side-content'>
+  <div class='popular'>
+    <div class='head'></div>
+    <div class='description'>Your personal Reedat profile. Come here to find all content you made on Reedat.</div>
+    <div class='create-post'>
+      <a href='#create-post'><button class='create-button'>Create Post</button> </a>
+    </div>
+  </div>
+
+  <div id='create-post' class='modal-create'>
+  <div>
+      <a href="#modal-close" title="Close" class="modal-close">X</a>
+      <span class='title'>Create Post</span>
+      <%= form_with url: posts_path, html: {class: "form-create"}, local: true do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title, placeholder: "Title" %> <br>
+
+        <%= f.label :body %>
+        <%= f.text_area :body, placeholder: "Body" %> <br>
+        <%= f.file_field :photos %>
+        <%= f.hidden_field :user_id, value: @user.id %>
+
+        <%= f.submit 'Post' %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
