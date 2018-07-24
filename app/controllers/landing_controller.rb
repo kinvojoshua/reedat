@@ -1,34 +1,23 @@
 class LandingController < ApplicationController
-
   def index
-    if session[:current_user_id] != nil
-      @user = User.find(session[:current_user_id])
-      @posts = Post.all()
-    else
-      @posts = Post.all()
-    end
+    @posts = Post.all
   end
 
   def login
-    if session[:current_user_id] != nil
-      redirect_to root_path
-    end
   end
 
   def authenticate
-    @user = User.find_by_username(params[:username])
-
-    if @user && @user.authenticate(params[:password])
-      session[:current_user_id] = @user.id
+    @user = User.find_for_authentication(username: params[:username])
+    @user.valid_password?(params[:password]) ? @user: nil
+    if @user.present?
+      sign_in(@user)
       redirect_to root_path
     else
-      redirect_to login_path, :flash => { :error => "user not found." }
+      redirect_to login_path
     end
   end
 
   def logout
-    reset_session
-    redirect_to welcome_path
-  end
 
+  end
 end
