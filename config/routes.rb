@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   post '/users/me', to: 'users#profile'
   resources :posts
   resources :comments
+  resources :admin
 end

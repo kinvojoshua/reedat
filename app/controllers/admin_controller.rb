@@ -1,9 +1,9 @@
 class AdminController < ApplicationController
-  before_action :authenticate_user!
   def index
-    @user = User.all
+    if current_user.role == 'admin'
+      @user = User.all
+    else
+      redirect_to root_path
+    end
   end
-
-  private
-
 end

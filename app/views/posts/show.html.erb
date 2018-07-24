@@ -64,7 +64,7 @@
             </li>
           </ul>
         </div>
-
+      <% if signed_in? %>
         <div class='comment-field'>
           <%= form_with url: comments_path, local: true do |f| %>
             <%= f.label :Comment %>
@@ -76,10 +76,10 @@
         </div>
         <hr>
       </div>
-
+      <% end %>
       <div class='comment-section'>
         <% @comments.each do |comment| %>
-          <%= render partial: 'comment', :locals => {:comment => comment, :user => current_user} %>
+          <%= render partial: 'comment', :locals => {:comment => comment} %>
         <% end %>
       </div>
     </div>

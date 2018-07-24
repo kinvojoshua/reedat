@@ -14,12 +14,14 @@
           <ion-icon name="chatboxes"></ion-icon>
           <details>
             <summary>Comment</summary>
+            <% if signed_in? %>
             <%= form_with url: comments_path, local: true do |f| %>
               <%= f.text_area :body, placeholder: 'what are your thoughts?' %>
               <%= f.hidden_field :comment_id, :value => comment.id %>
               <%= f.hidden_field :post_id, :value => comment.post_id %>
               <%= f.hidden_field :user_id, :value => current_user.id %>
               <%= f.submit 'Comment' %>
+              <% end %>
             <% end %>
           </details>
         </li>
@@ -27,7 +29,7 @@
     </div>
 
     <% comment.comments.each do |comment| %>
-    <%= render partial: 'comment', :locals => {:comment => comment, :user => current_user} %>
+    <%= render partial: 'comment', :locals => {:comment => comment} %>
     <% end %>
     </div>
 
