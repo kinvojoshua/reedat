@@ -1,6 +1,10 @@
+require 'identicon'
 class LandingController < ApplicationController
   def index
     @posts = Post.all
+    if user_signed_in?
+      @identicon = Identicon.data_url_for current_user.username, 35
+    end
   end
 
   def login
