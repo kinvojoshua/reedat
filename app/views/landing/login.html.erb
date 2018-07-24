@@ -2,25 +2,27 @@
 <container class='parentContainer'>
 
 
-  <nav class='navBar'> 
-    <section class='logo'> </section>
+  <nav class='navBar'>
+    <section class='logo'>
+    <%= link_to ' REEDAT ', root_path %>
+    </section>
   </nav>
 
 
   <%= form_with url: login_path, local: true do |f|  %>
     <%= f.label :username %>
     <%= f.text_field :username, placeholder: 'Username' %> <br> <br>
-  
+
     <%= f.label :password %>
     <%= f.password_field :password, placeholder: 'Password' %> <br>
-  
+
     <%= f.submit 'SIGN IN'%>
   <% end %>
 
-  
+
   <section class='userNew'>
   <h1> New to Reedat? </h1>
-  <h1 class='l' > 
+  <h1 class='l' >
   <%= link_to 'SIGN UP', new_user_path %> </h1>
   <br>
   <h1 class='l' > FORGOT PASSWORD </h1>

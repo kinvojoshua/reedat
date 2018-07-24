@@ -1,11 +1,10 @@
 class UsersController < ApplicationController
-
   def new
     @user = User.new
   end
 
   def create
-    @user = User.create(permitted_params)
+    @user = User.new(permitted_params)
     if @user.save
       session[:current_user_id] = @user.id
       redirect_to welcome_path
@@ -14,8 +13,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+    
+  end
+
   private
+
   def permitted_params
-    params.require(:user).permit(:first_name, :last_name, :username, :password, :email)
+    params.require(:user).permit(:first_name,
+                                 :last_name,
+                                 :username,
+                                 :password,
+                                 :email)
   end
 end

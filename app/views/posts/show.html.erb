@@ -2,13 +2,18 @@
 <nav class='top-nav'>
   <ul class='navbar'>
     <div class='logo'>
-      <li><ion-icon class='logo-header' name="logo-reddit"></ion-icon></li>
+      <li>
+        <%= link_to welcome_path do %>
+        <ion-icon class='logo-header' name="logo-reddit"></ion-icon>
+        <% end %>
+      </li>
       <li><span class='logo-text'>r/<%= @post.user.username %></span></li>
       <li><span class='post-body'><%= @post.body %></span></li>
     </div>
     <div class='list'>
       <li><ion-icon name="trending-up"></ion-icon></li>
       <li><ion-icon name="stats"></ion-icon></li>
+      <li><a href='#create-post'><ion-icon name="create" ></ion-icon></a></li>
       <li class='search'>
         <input class='search-box' type='text' placeholder='Search' />
       </li>
@@ -35,7 +40,11 @@
         </div>
 
         <div class='picture'>
+          <% if @post.photos.url != nil %>
+          <%= image_tag @post.photos.thumb.url %>
+          <% else %>
           <%= @post.body %>
+          <% end %>
         </div>
 
         <div class='options'>
@@ -55,22 +64,22 @@
             </li>
           </ul>
         </div>
-
+      <% if signed_in? %>
         <div class='comment-field'>
           <%= form_with url: comments_path, local: true do |f| %>
             <%= f.label :Comment %>
             <%= f.text_area :body, placeholder: 'What are your thoughts?' %>
-            <%= f.hidden_field :user_id, :value => @current_user.id %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
             <%= f.hidden_field :post_id, :value => @post.id %>
             <%= f.submit 'Comment' %>
           <% end %>
         </div>
         <hr>
       </div>
-
+      <% end %>
       <div class='comment-section'>
         <% @comments.each do |comment| %>
-          <%= render partial: 'comment', :locals => {:comment => comment, :user => @current_user} %>
+          <%= render partial: 'comment', :locals => {:comment => comment} %>
         <% end %>
       </div>
     </div>
@@ -79,14 +88,12 @@
 <section class='side-content'>
   <div class='popular'>
     <div class='head'></div>
-    <div class='description'>Your personal Reddit frontpage. Come here to check in with your favorite communities.</div>
+    <div class='description'>Welcome to the wholesome side of the internet!
+      This community is for those searching for a way to capture virtue on the internet.</div>
     <div class='create-post'>
-      <a href='#create-post'><button class='create-button'>Create Post</button> </a>
+      <a href='#create-post'><button class='create-button'>SUBSCRIBE</button> </a>
     </div>
   </div>
 </section>
-
-
-
 
 <script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
