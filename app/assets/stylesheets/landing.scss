@@ -9,6 +9,7 @@
     $text-mute: #B2B2B2;
     $red: #B13232;
 
+    $text-mute: #B2B2B2;
     body {
       background-color: $background-color;
       padding: 0;
@@ -75,6 +76,7 @@
     .user-icon {
       font-size: 22px;
       background-color: $main-button;
+      margin-left: 10px;
       border-radius: 50%;
       width: 30px;
       height: 30px;
@@ -87,7 +89,7 @@
 
     .dropdown-nav > a {
       text-decoration: none;
-      padding: 8px 12px;
+      padding: 8px 10px;
       line-height: 2;
       color: black;
     }
@@ -98,14 +100,14 @@
       padding: 0;
       margin: 0;
       background: white;
-      padding: 15px 30px;
+      padding: 15px 15px 15px 25px;
     }
 
 
     .dropdown li a {
       text-decoration: none;
       display: inline;
-      color: black;
+      color: black; 
     }
     .dropdown-nav:hover > .dropdown {
       display: block;
