@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
   def create
     @vote = Vote.new
-    @user = User.find(session[:current_user_id])
+    @user = User.find(current_user.id)
     @post = Post.find(params[:format].to_i)
     @vote.user = @user
     @vote.post = @post
