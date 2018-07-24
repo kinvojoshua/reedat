@@ -20,7 +20,7 @@
       <li><%= button_to 'Sign-Up', new_user_path, :class => 'sign-up-button', :method => :get%></li>
     </div>
     <% else %>
-      <li><%= button_to 'Logout', logout_path, :class => 'login-button', :method => :post%>
+      <li><%= button_to 'Logout', destroy_user_session_path, :class => 'login-button', :method => :delete%>
     <% end %>
 
   </ul>
@@ -46,8 +46,9 @@
         <li>Total comments: <%= current_user.comments.count %></li>
 
         <li>Total votes: <%= current_user.votes.count %></li>
-
+        <% if !current_user.posts.empty? %>
         <li>Recent post: <%= link_to current_user.posts.last.title, post_path(current_user.posts.last) %></li>
+        <% end %>
       </div>
     </div>
   </div>
@@ -74,7 +75,7 @@
         <%= f.label :body %>
         <%= f.text_area :body, placeholder: "Body" %> <br>
         <%= f.file_field :photos %>
-        <%= f.hidden_field :user_id, value: @user.id %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
 
         <%= f.submit 'Post' %>
       <% end %>
