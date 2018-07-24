@@ -1,3 +1,4 @@
+
 <%= stylesheet_link_tag 'landing', media: 'all' %>
 <nav class='top-nav'>
   <ul class='navbar'>
@@ -26,7 +27,7 @@
         <li><%= link_to 'Logout', destroy_user_session_path, :class => '', :method => :delete%></li>
         </ul>
       </li>
-      <li class='user-icon'></li>
+      <li class='user-icon'><%= image_tag @identicon %></li>
     </div>
     <% end %>
   </ul>
