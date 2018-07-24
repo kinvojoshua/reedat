@@ -16,7 +16,7 @@ $grey: #E5E5E5;
 
 body {
   background-image: url('http://desktopography.net/wp-content/uploads/bfi_thumb/Mart_Biemans_Resting_Place-32f54nn7h479xcbj64oc8w.jpg');
-  background-position: 678px 0px;
+  background-position: 600px 0px;
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
@@ -138,11 +138,13 @@ form {
   body{
     background-image: none;
     background-color: $grey;
+    height: 100%
   }
 
   .parentContainer {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     padding: 20px;
   }
@@ -153,9 +155,13 @@ form {
   }
 
   .mainContent {
-    padding: 15px 0;
+    padding: 25px 0;
     width: 70%;
     justify-content: space-around;
+
+    > h1 {
+      font-size: 24px;
+    }
   }
 
   .userLogIn {
