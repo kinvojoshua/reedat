@@ -102,9 +102,9 @@
   <meta property="og:title" content='<%= @post.title %>'/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="http://reedat.herokuapp.com/posts/<%=@post.id%>"/>
-  <% if @post.photos.url.nil? %>
+  <% if @post.photos.url.present? %>
     <meta property="og:image" content="<%= @post.photos.url %>"/>
   <% else %>
-    <meta property="og:image" content= <%= Identicon.data_url_for current_user.username %> />
+    <meta property="og:description" content= '<%= @post.body %>' />
   <% end %>
 <% end %>
