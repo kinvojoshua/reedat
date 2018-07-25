@@ -1,17 +1,14 @@
 class VotesController < ApplicationController
   def create
     @vote = Vote.new
-    @user = User.find(current_user.id)
+    @vote.user = current_user
     @post = Post.find(params[:format].to_i)
-    @vote.user = @user
     @vote.post = @post
     @vote.upvote = true
-    if !@post.votes.empty? && Vote.find_by_user_id(@user.id)
+    if @post.votes.present? && @post.votes.where(user_id: current_user.id).present?
       redirect_to welcome_path
     else
-      if @vote.save
-        redirect_to welcome_path
-      end
+      redirect_to welcome_path if @vote.save
     end
   end
 end
