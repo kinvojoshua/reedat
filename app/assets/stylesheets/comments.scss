@@ -3,14 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-$background-color: #E5E5E5; 
-$main-button: #32a2d1;
+$grey: #E5E5E5; 
+$blue: #32a2d1;
 $font-family: 'Roboto', sans-serif;
 $text-mute: #B2B2B2;
 $red: #B13232;
 
 body {
-  background-color: $background-color;
+  background-color: $grey;
   padding: 0;
   margin: 0;
   height: 100vh;
@@ -77,7 +77,7 @@ body {
   justify-content: space-between;
   > li ion-icon {
     font-size: 20px;
-    background-color: $main-button;
+    background-color: $blue;
     border-radius: 50%;
     padding: 4px;
     width: 20px;
@@ -109,14 +109,14 @@ body {
   }
   > li ion-icon:hover {
     transition: background-color 0.8s ease;
-    background-color: $main-button;
+    background-color: $blue;
     color: white;
   }
   > .search input {
     padding: 8px;
     margin: 0 12px;
     border: 0;
-    background-color: $background-color;
+    background-color: $grey;
     width: 300px;
     max-width: 400px;
   }
@@ -145,18 +145,18 @@ body {
   font-weight: 550;
   letter-spacing: 0.7px;
   line-height: 24px;
-  color: $main-button;
+  color: $blue;
   border: 0;
   border-radius: 5px;
   padding: 5px 16px;
   margin: 0 15px;
   font-size: 14px;
   width: 100px;
-  border: 1px solid $main-button
+  border: 1px solid $blue
 }
 
 .sign-up-button {
-  background-color: $main-button;
+  background-color: $blue;
   box-sizing: border-box;
   font-weight: 550;
   letter-spacing: 0.7px;
@@ -168,20 +168,20 @@ body {
   margin: 0 15px;
   font-size: 14px;
   width: 100px;
-  border: 1px solid $main-button
+  border: 1px solid $blue
 }
 
 .login-button:hover {
   transition: all 0.5s ease;
-  background-color: $main-button;
+  background-color: $blue;
   color: white;
 }
 
 .sign-up-button:hover {
   transition: all 0.5s ease;
   background-color: white;
-  color: $main-button;
-  border: 1px solid $main-button
+  color: $blue;
+  border: 1px solid $blue
 }
 
 .content {
@@ -327,7 +327,7 @@ body {
 
 .create-button {
   color: white;
-  background-color: $main-button;
+  background-color: $blue;
   border: 0;
   padding: 8px 14px;
   font-size: 16px;
@@ -345,10 +345,10 @@ body {
 .create-button:hover {
   transition: all 0.5s ease;
   background-color: white;
-  color: $main-button;
-  border: 1px solid $main-button;
+  color: $blue;
+  border: 1px solid $blue;
   > a {
-    color: $main-button;
+    color: $blue;
     transition: all 0.5s ease;
   }
 } 
@@ -435,21 +435,21 @@ body {
   }
 
   > input[name='commit'] {
-    background-color: $main-button;
+    background-color: $blue;
     padding: 10px;
     width: 200px;
     max-width: 80%;
     color: #FFF;
     font-size: 16px;
     font-weight: 600;
-    border: 1px solid $main-button;
+    border: 1px solid $blue;
     margin: 10px 0 0 0;
   }
 
   > input[name='commit']:hover {
     transition: all 0.5 ease;
     background-color: #FFF;
-    color: $main-button;
+    color: $blue;
   }
 
   > label {
@@ -490,14 +490,14 @@ form label {
   }
 
   > form input[type='submit'] {
-    background-color: $main-button;
+    background-color: $blue;
     padding: 8px;
     width: 150px;
     max-width: 80%;
     color: #FFF;
     font-size: 16px;
     font-weight: 600;
-    border: 1px solid $main-button;
+    border: 1px solid $blue;
     align-self: flex-end;
     border-radius: 5px;
   }
@@ -506,7 +506,7 @@ form label {
 
 .create-button {
   color: white;
-  background-color: $main-button;
+  background-color: $blue;
   border: 0;
   padding: 8px 14px;
   font-size: 16px;
@@ -524,10 +524,10 @@ form label {
 .create-button:hover {
   transition: all 0.5s ease;
   background-color: white;
-  color: $main-button;
-  border: 1px solid $main-button;
+  color: $blue;
+  border: 1px solid $blue;
   > a {
-    color: $main-button;
+    color: $blue;
     transition: all 0.5s ease;
   }
 } 
@@ -600,13 +600,13 @@ details {
   }
 
   > form input[type='submit'] {
-    background-color: $main-button;
+    background-color: $blue;
     padding: 8px;
     width: 100px;
     color: #FFF;
     font-size: 16px;
     font-weight: 600;
-    border: 1px solid $main-button;
+    border: 1px solid $blue;
     align-self: flex-end;
     border-radius: 5px;
   }
@@ -621,7 +621,7 @@ details {
 
 @media (max-width: 768px) {
   body {
-    background-color: $background-color;
+    background-color: $grey;
     padding: 0;
     margin: 0;
     height: 100vh;
