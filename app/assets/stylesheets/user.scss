@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-$font-family: Roboto;
+$font-family: Roboto, sans-serif;
 $blue: #32A2D1; 
 $red:  #B13232;
 $grey: #E5E5E5;
@@ -22,8 +22,7 @@ body {
   width: 100%;
 }
 
-.parentContainer{
-  /*background = photo = somewhere in public file */
+.parent-container{
   background: #FFF;
   display: grid;
   grid-template-rows: auto 25% 25% auto;
@@ -35,7 +34,7 @@ body {
   box-shadow: 6px 0 100px #0000004e;
 }
 
-.navBar {
+.nav-bar {
   grid-row: span 1;
   grid-column: span 4;
 
@@ -99,7 +98,7 @@ form {
 
 }
 
-.mainContent {
+.main-content {
   grid-row: span 2;
   grid-column: span 3;
   display: flex;
@@ -116,7 +115,7 @@ form {
   }
 }
 
-.userLogIn {
+.user-login {
   grid-row: span 1;
   grid-column: span 1;
   display: flex;
@@ -141,7 +140,7 @@ form {
     height: 100%
   }
 
-  .parentContainer {
+  .parent-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -154,7 +153,7 @@ form {
 
   }
 
-  .mainContent {
+  .main-content {
     padding: 25px 0;
     width: 70%;
     justify-content: space-around;
@@ -164,13 +163,13 @@ form {
     }
   }
 
-  .userLogIn {
+  .user-login {
     padding: 15px 0;
   }
 
 }
 //Sign Up page CSS below
-.userNew {
+.user-new {
   grid-row: span 1;
   grid-column: span 4;
   display: flex;
