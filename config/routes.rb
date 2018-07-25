@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post '/logout', to: 'landing#logout'
   post '/vote', to: 'votes#create'
   post '/users/me', to: 'users#profile'
+  get '/confirm/:token', to: 'users#confirm', as: 'confirm'
   resources :posts
   resources :comments
   resources :admin
