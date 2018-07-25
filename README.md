@@ -1,24 +1,23 @@
-# README
+# Reedat
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Join the worldwide conversation.
+On Reedat, you can vote, comment, and post on all your desires within the Reedat community.
 
-Things you may want to cover:
+## Deployed on [Heroku](https://www.heroku.com/) - [Reedat](https://reedat.herokuapp.com)
 
-* Ruby version
+### Things that work:
 
-* System dependencies
+* User can Sign-up & Log-in
+* User can Create a post:
+    - link post
+    - image post
+    - text post
+* User can Comment on a post
+* User can comment on a comment (Thread)
+* User can Upvote a post
+* Comment counter
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
+* Responsive Layout
+* tbd
 * ...
+
