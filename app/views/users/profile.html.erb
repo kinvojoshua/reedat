@@ -14,42 +14,41 @@
         <input class='search-box' type='text' placeholder='Search' />
       </li>
     </div>
-    <% if @user == nil %>
+    <% if !user_signed_in? %>
     <div class='button-group'>
       <li><%= button_to 'Log-In', login_path, :class => 'login-button', :method => :get%></li>
       <li><%= button_to 'Sign-Up', new_user_path, :class => 'sign-up-button', :method => :get%></li>
     </div>
     <% else %>
-      <li><%= button_to 'Logout', logout_path, :class => 'login-button', :method => :post%>
+      <li><%= button_to 'Logout', destroy_user_session_path, :class => 'login-button', :method => :delete%>
     <% end %>
 
   </ul>
 </nav>
 
-
 <section class='main-content'>
-
   <div class='content'>
     <div class='inner-content'>
       <div class='user'>
         <div class='icon'></div>
         <span class='posted-by'>
-        Hi, u/ username: <%= @user.username %>
+        Hi, u/ username: <%= current_user.username %>
         </span>
       </div>
 
       <div class='title'>
-        This is your username: <%= @user.username %>
+        This is your username: <%= current_user.username %>
       </div>
 
-      <div class='picture -info'>
-        <li>Total post: <%= @user.posts.count %></li>
+      <div class='picture'>
+        <li>Total post: <%= current_user.posts.count %></li>
 
-        <li>Total comments: <%= @user.comments.count %></li>
+        <li>Total comments: <%= current_user.comments.count %></li>
 
-        <li>Total votes: <%= @user.votes.count %></li>
-
-        <li>Recent post: <%= link_to @user.posts.last.title, post_path(@user.posts.last) %></li>
+        <li>Total votes: <%= current_user.votes.count %></li>
+        <% if !current_user.posts.empty? %>
+        <li>Recent post: <%= link_to current_user.posts.last.title, post_path(current_user.posts.last) %></li>
+        <% end %>
       </div>
     </div>
   </div>
@@ -76,7 +75,7 @@
         <%= f.label :body %>
         <%= f.text_area :body, placeholder: "Body" %> <br>
         <%= f.file_field :photos %>
-        <%= f.hidden_field :user_id, value: @user.id %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
 
         <%= f.submit 'Post' %>
       <% end %>

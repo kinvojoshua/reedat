@@ -64,22 +64,22 @@
             </li>
           </ul>
         </div>
-
+      <% if signed_in? %>
         <div class='comment-field'>
           <%= form_with url: comments_path, local: true do |f| %>
             <%= f.label :Comment %>
             <%= f.text_area :body, placeholder: 'What are your thoughts?' %>
-            <%= f.hidden_field :user_id, :value => @current_user.id %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
             <%= f.hidden_field :post_id, :value => @post.id %>
             <%= f.submit 'Comment' %>
           <% end %>
         </div>
         <hr>
       </div>
-
+      <% end %>
       <div class='comment-section'>
         <% @comments.each do |comment| %>
-          <%= render partial: 'comment', :locals => {:comment => comment, :user => @current_user} %>
+          <%= render partial: 'comment', :locals => {:comment => comment} %>
         <% end %>
       </div>
     </div>
@@ -95,8 +95,5 @@
     </div>
   </div>
 </section>
-
-
-
 
 <script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>

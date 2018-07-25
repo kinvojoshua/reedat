@@ -14,21 +14,21 @@
         <input class='search-box' type='text' placeholder='Search' />
       </li>
     </div>
-    <% if @user == nil %>
-    <div class="button-group">
+    <% if !user_signed_in? %>
+    <div class='button-group'>
       <li><%= button_to 'Log-In', login_path, :class => 'login-button', :method => :get%></li>
       <li><%= button_to 'Sign-Up', new_user_path, :class => 'sign-up-button', :method => :get%></li>
     </div>
     <% else %>
     <div class='button-group'>
       <li class='dropdown-nav'>
-        <%= link_to @user.username, users_me_path,:class =>'', :method => :post %> 
+        <%= link_to current_user.username, users_me_path,:class =>'', :method => :post %>
         <ul class='dropdown'>
-        <li><%= link_to 'Logout', logout_path, :class => '', :method => :post%></li>
-        </ul>  
+        <li><%= link_to 'Logout', destroy_user_session_path, :class => '', :method => :delete%></li>
+        </ul>
       </li>
-      <li class='user-icon'></li>
-    </div>
+      <li class='user-icon'><%= image_tag @identicon %></li>
+</div>
     <% end %>
   </ul>
 </nav>
@@ -76,7 +76,9 @@
               <span>Share</span>
             </li>
             <li class='delete'>
-              <span>Delete</span>
+              <% if post.user == current_user %>
+                <span><%= link_to 'Delete', post_path(post), :method => :delete%> </span>
+              <% end %>
             </li>
           </ul>
         </div>
@@ -85,7 +87,7 @@
   <% end %>
 </section>
 
-<% if @user !=   nil %>
+<% if user_signed_in? %>
 
 <section class='side-content'>
   <div class='popular'>
@@ -107,7 +109,7 @@
       <%= f.label :body %>
       <%= f.text_area :body, placeholder: "Body" %> <br>
       <%= f.file_field :photos %>
-      <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.hidden_field :user_id, value: current_user.id%>
 
       <%= f.submit 'Post' %>
     <% end %>

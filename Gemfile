@@ -1,4 +1,4 @@
-  source 'https://rubygems.org'
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
@@ -6,6 +6,10 @@ ruby '2.5.1'
 gem 'carrierwave', '~> 1.0'
 
 gem 'mini_magick'
+
+gem 'devise'
+
+gem 'identicon'
 
 gem 'bcrypt', '~> 3.1.7'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
