@@ -97,3 +97,10 @@
 </section>
 
 <script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
+
+<%= content_for :meta do %>
+  <meta property="og:title" content='<%= @post.title %>'/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="http://reedat.herokuapp.com/posts/<%=@post.id%>"/>
+  <meta property="og:image" content="<%= @post.photos.url %>"/>
+<% end %>
