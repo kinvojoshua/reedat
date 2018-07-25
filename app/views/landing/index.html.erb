@@ -28,7 +28,7 @@
         </ul>
       </li>
       <li class='user-icon'><%= image_tag @identicon %></li>
-    </div>
+</div>
     <% end %>
   </ul>
 </nav>
@@ -76,7 +76,9 @@
               <span>Share</span>
             </li>
             <li class='delete'>
-              <span>Delete</span>
+              <% if post.user == current_user %>
+                <span><%= link_to 'Delete', post_path(post), :method => :delete%> </span>
+              <% end %>
             </li>
           </ul>
         </div>
