@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(permitted_params)
     if @user.save
-      session[:current_user_id] = @user.id
       redirect_to welcome_path
     else
       render 'new'
@@ -14,6 +13,12 @@ class UsersController < ApplicationController
   end
 
   def profile; end
+
+  def confirm
+    @user = User.find_by_confirmation_token(params[:token])
+    @user.update_attribute(:confirmed_at, Time.now)
+    redirect_to welcome_path
+  end
 
   private
 
