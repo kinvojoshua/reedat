@@ -79,6 +79,9 @@
                 <span><%= link_to 'Delete', post_path(post), :method => :delete%> </span>
               <% end %>
             </li>
+            <li>
+              <span class='lock'><ion-icon name="lock"></ion-icon>Lock me baby</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -97,6 +100,7 @@
     </div>
   </div>
 </section>
+
 <div id='create-post' class='modal-create'>
   <div>
     <a href="#modal-close" title="Close" class="modal-close">X</a>
