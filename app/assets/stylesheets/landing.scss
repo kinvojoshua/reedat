@@ -278,6 +278,10 @@ body {
     hyphens: auto;
     text-overflow: ellipsis;
     overflow: hidden;
+		word-wrap: break-word;
+		-webkit-hyphens: auto;
+		-ms-hyphens: auto;
+		-moz-hyphens: auto;
   }
 }
 
