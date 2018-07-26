@@ -1,6 +1,6 @@
 $font-family: 'Roboto', sans-serif;
 $blue: #32a2d1;
-$grey: #E5E5E5; 
+$grey: #E5E5E5;
 $red: #B13232;
 $text-mute: #B2B2B2;
 
@@ -20,7 +20,7 @@ $text-mute: #B2B2B2;
   width: 60%;
   border-collapse: collapse;
   box-shadow: 0 1px 10px rgba(0,0,0,0.5);
-  border: 1px solid rgba(0,0,0,0.4)
+  border: 1px solid rgba(0,0,0,0.4);
   border-radius: 5px;
 }
 
@@ -35,7 +35,7 @@ $text-mute: #B2B2B2;
     font-size: 30px;
     line-height: 1;
    }
-  
+
   > .icon {
     font-size: 45px;
     color: white;
@@ -60,5 +60,3 @@ $text-mute: #B2B2B2;
     line-height: 1.6;
   }
 }
-
-
