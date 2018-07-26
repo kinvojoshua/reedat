@@ -2,10 +2,10 @@
 <div class="email-container">
   <div class="email-head">
     <ion-icon name="logo-reddit" class='icon'></ion-icon>
-    <span class='title'>reedat</span>  
+    <span class='title'>reedat</span>
   </div>
   <div class="email-body">
-    <p class='welcome'>Welcome to reedat <strong><%= @username %></strong></p>
+    <p class='welcome'>Welcome to reedat <strong><%= @email %></strong></p>
     <p class='confirm-text'>You can confirm your account email through the link below:</p>
     <%= link_to 'Confirm my account', confirm_url(@token) %>
   </div>
@@ -13,4 +13,3 @@
 </div>
 
 <script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
-
