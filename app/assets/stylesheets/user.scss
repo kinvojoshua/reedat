@@ -134,42 +134,8 @@ form {
   }
 }
 
-<<<<<<< Updated upstream
-@media screen and (max-width: 900px) {
-  body{
-    background-image: none;
-    background-color: $grey;
-  }
-
-  .parentContainer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 20px;
-  }
-
-  form {
-    padding: 15px 0;
-
-  }
-
-  .mainContent {
-    padding: 15px 0;
-    width: 70%;
-    justify-content: space-around;
-  }
-
-  .userLogIn {
-    padding: 15px 0;
-  }
-
-}
-//Sign Up page CSS below
-.userNew {
-=======
 //Login page CSS below
 .user-new {
->>>>>>> Stashed changes
   grid-row: span 1;
   grid-column: span 4;
   display: flex;
@@ -215,8 +181,6 @@ form[action='/login'] {
 a {
   text-decoration: none;
   color: $blue;
-<<<<<<< Updated upstream
-=======
 }
 
 //media screen CSS below
@@ -256,5 +220,4 @@ a {
     padding: 15px 0;
   }
 
->>>>>>> Stashed changes
 }
