@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+$font-family: 'Roboto', sans-serif;
+$blue: #32a2d1;
+$grey: #E5E5E5; 
+$red: #B13232;
+$text-mute: #B2B2B2;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: $grey;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.email-container {
+  background: white;
+  width: 60%;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,.3);
+}
+
+.email-head {
+  background: $blue;
+  padding: 16px 14px;
+  display: flex;
+  justify-content: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  > .title {
+    color: white;
+    font-size: 30px;
+    line-height: 1.6;
+   }
+  
+  > .icon {
+    font-size: 45px;
+    color: white;
+    padding: 0 8px;
+  }
+}
+
+.email-body {
+  padding: 20px 14px;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  > .welcome {
+    font-size: 30px;
+  }
+  > .confirm-text {
+    font-size: 14px;
+  }
+  > .confirm-link {
+    color: black;
+  }
+}
+
+
+
