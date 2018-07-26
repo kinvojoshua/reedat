@@ -133,42 +133,6 @@ form {
   }
 }
 
-@media screen and (max-width: 900px) {
-  body{
-    background-image: none;
-    background-color: $grey;
-    height: 100%
-  }
-
-  .parent-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    padding: 20px;
-  }
-
-  form {
-    padding: 15px 0;
-
-  }
-
-  .main-content {
-    padding: 25px 0;
-    width: 70%;
-    justify-content: space-around;
-
-    > h1 {
-      font-size: 24px;
-    }
-  }
-
-  .user-login {
-    padding: 15px 0;
-  }
-
-}
-//Sign Up page CSS below
 .user-new {
   grid-row: span 1;
   grid-column: span 4;
@@ -215,4 +179,43 @@ form[action='/login'] {
 a {
   text-decoration: none;
   color: $blue;
+}
+
+//media screen CSS below
+@media screen and (max-width: 800px) {
+  body{
+    background-image: none;
+    background-color: $grey;
+    height: 100%
+  }
+
+  .parent-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+		height: 100vh;
+    padding: 20px;
+		box-shadow: 0 0 #fff;
+  }
+
+  form[action='/login'] {
+    padding: 15px 0;
+		height: 300px;
+  }
+
+  .main-content {
+    padding: 25px 0;
+    width: 70%;
+    justify-content: space-around;
+
+    > h1 {
+      font-size: 24px;
+    }
+  }
+
+  .user-login {
+    padding: 15px 0;
+  }
+
 }
