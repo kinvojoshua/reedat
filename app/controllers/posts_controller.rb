@@ -14,6 +14,11 @@ class PostsController < ApplicationController
     redirect_to welcome_path
   end
 
+  def search
+    @post = Post.where('title LIKE ?', "#{params[:title]}")
+    render json: {status: ' Success', data: @post }
+  end
+
   private
 
   def permitted_params

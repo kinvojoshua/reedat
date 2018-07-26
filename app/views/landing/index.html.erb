@@ -10,7 +10,7 @@
       <li><ion-icon name="stats"></ion-icon></li>
       <li><a href='#create-post'><ion-icon name="create" ></ion-icon></a></li>
       <li class='search'>
-        <input class='search-box' type='text' placeholder='Search' />
+        <input class='search-box' id='search-box' type='text' placeholder='Search' />
       </li>
     </div>
     <% if !user_signed_in? %>
@@ -33,62 +33,7 @@
 </nav>
 
 <section class='main-content'>
-  <% @posts.each do |post| %>
-    <div class='content'>
-      <div class='side-bar'>
-        <%= link_to vote_path(post: post, vote: true), method: :post do %>
-          <ion-icon name="arrow-round-up" class='arrow-up'></ion-icon>
-        <% end %>
-        <span> <%= post.votes.where(upvote: true).count - post.votes.where(upvote: false).count%></span>
-        <%= link_to vote_path(post: post, vote: false), method: :post do %>
-          <ion-icon name="arrow-round-down" class='arrow-down'></ion-icon>
-        <% end %>
-      </div>
-      <div class='inner-content'>
-        <div class='user'>
-          <div class='icon'></div>
-          <span class='thread'>r/hello</span>
-          <span class='posted-by'>Posted by u/<%= post.user.username %> 1 hour ago </span>
-        </div>
-
-        <div class='title'>
-          <%= post.title %>
-        </div>
-
-        <div class='picture'>
-          <% if post.photos.url != nil %>
-          <%= image_tag post.photos.thumb.url %>
-          <% else %>
-          <%= post.body %>
-          <% end %>
-        </div>
-
-        <div class='options'>
-          <ul class='option-list'>
-            <li class='comments'>
-              <ion-icon name="chatboxes"></ion-icon>
-              <span>
-                <%= post.comments.count %>
-                <%= link_to 'Comments', post_path(post) %>
-              </span>
-            </li>
-            <li class='share'>
-              <ion-icon name="share-alt"></ion-icon>
-              <span>Share</span>
-            </li>
-            <li class='delete'>
-              <% if post.user == current_user %>
-                <span><%= link_to 'Delete', post_path(post), :method => :delete%> </span>
-              <% end %>
-            </li>
-            <li>
-              <span class='lock'><ion-icon name="lock"></ion-icon>Lock me baby</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  <%= render partial: 'post', :locals => {:posts => @posts} %>
 </section>
 
 <% if user_signed_in? %>

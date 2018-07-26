@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/vote', to: 'votes#create'
   post '/users/me', to: 'users#profile'
   get '/confirm/:token', to: 'users#confirm', as: 'confirm'
+  post '/posts/search', to: 'posts#search'
   resources :posts
   resources :comments
   resources :admin
