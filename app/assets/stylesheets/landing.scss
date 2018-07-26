@@ -3,20 +3,19 @@
     // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-$grey: #E5E5E5; 
-$blue: #32a2d1;
 $font-family: 'Roboto', sans-serif;
-$text-mute: #B2B2B2;
+$blue: #32a2d1;
+$grey: #E5E5E5; 
 $red: #B13232;
-
 $text-mute: #B2B2B2;
+
 body {
   background-color: $grey;
   padding: 0;
   margin: 0;
   height: 100vh;
   display: grid;
-  grid-template-rows: 10% auto;
+  grid-template-rows: 8% auto;
   grid-template-columns: auto 500px;
   grid-column-gap: 30px;
   grid-row-gap: 20px;
@@ -51,14 +50,13 @@ body {
   grid-row: 2;
   grid-column: 2;
   width: 65%;
+  
   > .popular {
     background-color: white;
     border-radius: 10px;
+    margin-bottom: 20px;
   }
 
-  > .advertisement {
-    background-color: yellow;
-  }
 }
 
 .navbar {
@@ -118,11 +116,12 @@ body {
 .logo {
   display: flex;
   justify-content: space-between;
+  margin-top: 8px;
   > li ion-icon {
-    font-size: 22px;
+    font-size: 20px;
     background-color: $blue;
     border-radius: 50%;
-    padding: 6px;
+    padding: 4px;
     width: 30px;
     height: 30px;
     color: white;
@@ -131,7 +130,7 @@ body {
   > li > .logo-text {
     font-size: 22px;
     font-weight: 600;
-    line-height: 2.3;
+    line-height: 2;
     margin-left: 8px;
   }
 }
@@ -195,7 +194,7 @@ body {
   margin: 0 15px;
   font-size: 14px;
   min-width: 20px;
-  max-width: 100px;
+  width: 100px;
   border: 1px solid $blue
 }
 
@@ -212,7 +211,7 @@ body {
   margin: 0 15px;
   font-size: 14px;
   min-width: 20px;
-  max-width: 100px;
+  width: 100px;
   border: 1px solid $blue
 }
 
@@ -327,6 +326,11 @@ body {
     }
 
     > .delete > span {
+      color: $text-mute;
+      font-size: 14px;
+      padding: 0 0 0 12px;
+    }
+    > li .lock {
       color: $text-mute;
       font-size: 14px;
       padding: 0 0 0 12px;
