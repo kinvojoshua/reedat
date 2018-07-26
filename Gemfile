@@ -8,7 +8,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 
 gem 'devise'
-
+gem 'roadie-rails'
 gem 'identicon'
 
 gem 'dotenv-rails'
