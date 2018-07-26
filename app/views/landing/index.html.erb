@@ -1,7 +1,9 @@
-
 <%= stylesheet_link_tag 'landing', media: 'all' %>
 <nav class='top-nav'>
+<label for="menu" class="menu"><ion-icon size='large' name="menu"></ion-icon></label>
+<input type="checkbox" id="menu" role="button">
   <ul class='navbar'>
+
     <div class='logo'>
       <li><ion-icon class='logo-header' name="logo-reddit"></ion-icon></li>
       <li><span class='logo-text'>REEDAT</span></li>
@@ -9,19 +11,27 @@
     <div class='list'>
       <li><ion-icon name="trending-up"></ion-icon></li>
       <li><ion-icon name="stats"></ion-icon></li>
+      <li><a href='#create-post'><ion-icon name="create" ></ion-icon></a></li>
       <li class='search'>
         <input class='search-box' type='text' placeholder='Search' />
       </li>
     </div>
-    <% if @user == nil %>
+    <% if !user_signed_in? %>
     <div class='button-group'>
       <li><%= button_to 'Log-In', login_path, :class => 'login-button', :method => :get%></li>
       <li><%= button_to 'Sign-Up', new_user_path, :class => 'sign-up-button', :method => :get%></li>
     </div>
     <% else %>
-      <li><%= button_to 'Logout', logout_path, :class => 'login-button', :method => :post%>
+    <div class='button-group'>
+      <li class='dropdown-nav'>
+        <%= link_to current_user.username, users_me_path,:class =>'', :method => :post %>
+        <ul class='dropdown'>
+        <li><%= link_to 'Logout', destroy_user_session_path, :class => '', :method => :delete%></li>
+        </ul>
+      </li>
+      <li class='user-icon'><%= image_tag @identicon %></li>
+</div>
     <% end %>
-
   </ul>
 </nav>
 
@@ -29,9 +39,13 @@
   <% @posts.each do |post| %>
     <div class='content'>
       <div class='side-bar'>
-        <ion-icon name="arrow-round-up" class='arrow-up'></ion-icon>
-        <span>14.5k</span>
-        <ion-icon name="arrow-round-down" class='arrow-down'></ion-icon>
+        <%= link_to vote_path(post: post, vote: true), method: :post do %>
+          <ion-icon name="arrow-round-up" class='arrow-up'></ion-icon>
+        <% end %>
+        <span> <%= post.votes.where(upvote: true).count - post.votes.where(upvote: false).count%></span>
+        <%= link_to vote_path(post: post, vote: false), method: :post do %>
+          <ion-icon name="arrow-round-down" class='arrow-down'></ion-icon>
+        <% end %>
       </div>
       <div class='inner-content'>
         <div class='user'>
@@ -56,16 +70,22 @@
           <ul class='option-list'>
             <li class='comments'>
               <ion-icon name="chatboxes"></ion-icon>
-              <span>483 comments
-                <%= link_to 'comments', post_path(post) %>
+              <span>
+                <%= post.comments.count %>
+                <%= link_to 'Comments', post_path(post) %>
               </span>
             </li>
             <li class='share'>
               <ion-icon name="share-alt"></ion-icon>
               <span>Share</span>
             </li>
-            <li class='more'>
-              ...
+            <li class='delete'>
+              <% if post.user == current_user %>
+                <span><%= link_to 'Delete', post_path(post), :method => :delete%> </span>
+              <% end %>
+            </li>
+            <li>
+              <span class='lock'><ion-icon name="lock"></ion-icon>Lock me baby</span>
             </li>
           </ul>
         </div>
@@ -74,7 +94,7 @@
   <% end %>
 </section>
 
-<% if @user != nil %>
+<% if user_signed_in? %>
 
 <section class='side-content'>
   <div class='popular'>
@@ -85,6 +105,7 @@
     </div>
   </div>
 </section>
+
 <div id='create-post' class='modal-create'>
   <div>
     <a href="#modal-close" title="Close" class="modal-close">X</a>
@@ -96,7 +117,7 @@
       <%= f.label :body %>
       <%= f.text_area :body, placeholder: "Body" %> <br>
       <%= f.file_field :photos %>
-      <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.hidden_field :user_id, value: current_user.id%>
 
       <%= f.submit 'Post' %>
     <% end %>

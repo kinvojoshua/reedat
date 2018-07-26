@@ -1,18 +1,39 @@
 <blockquote>
+  <div class='arrows'>
+    <span><ion-icon name="arrow-round-up" class='arrow-up'></ion-icon></span>
+    <span><ion-icon name="arrow-round-down" class='arrow-down'></ion-icon></span>
+    <div class='vertical-line'></div>
+  </div>
 
-  <h4> commentor: <%= comment.user.username %> </h4>
-  <h5> comment body: <%= comment.body %>
-    <%= form_with url: comments_path, local: true do |f| %>
-      <%= f.text_field :body %>
-      <%= f.hidden_field :comment_id, :value => comment.id %>
-      <%= f.hidden_field :post_id, :value => comment.post_id %>
-      <%= f.hidden_field :user_id, :value => user.id %>
-      <%= f.submit %>
-    <% end %>
+  <div class='comments'>
+  <span class='username'><a href='#'><%= comment.user.username %> </a></span>
+  <span class='comment-body'><%= comment.body %></span>
+    <div class='options'>
+      <ul class='option-list'>
+        <li class='show-comment-field'>
+          <ion-icon name="chatboxes"></ion-icon>
+          <details>
+            <summary>Comment</summary>
+            <% if signed_in? %>
+              <%= form_with url: comments_path, local: true do |f| %>
+                <%= f.text_area :body, placeholder: 'what are your thoughts?' %>
+                <%= f.hidden_field :comment_id, :value => comment.id %>
+                <%= f.hidden_field :post_id, :value => comment.post_id %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.submit 'Comment' %>
+              <% end %>
+            <% end %>
+          </details>
+        </li>
+      </ul>
+    </div>
 
     <% comment.comments.each do |comment| %>
-    <%= render partial: 'comment', :locals => {:comment => comment, :user => user} %>
+    <%= render partial: 'comment', :locals => {:comment => comment} %>
     <% end %>
+    </div>
 
   </blockquote>
-<hr>
+
+
+<script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>

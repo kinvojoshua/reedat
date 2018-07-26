@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-$font-family: Roboto;
+$font-family: Roboto, sans-serif;
 $blue: #32A2D1; 
 $red:  #B13232;
 $grey: #E5E5E5;
@@ -16,14 +16,13 @@ $grey: #E5E5E5;
 
 body {
   background-image: url('http://desktopography.net/wp-content/uploads/bfi_thumb/Mart_Biemans_Resting_Place-32f54nn7h479xcbj64oc8w.jpg');
-  background-position: 678px 0px;
+  background-position: 600px 0px;
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
 }
 
-.parentContainer{
-  /*background = photo = somewhere in public file */
+.parent-container{
   background: #FFF;
   display: grid;
   grid-template-rows: auto 25% 25% auto;
@@ -35,12 +34,12 @@ body {
   box-shadow: 6px 0 100px #0000004e;
 }
 
-.navBar {
+.nav-bar {
   grid-row: span 1;
   grid-column: span 4;
 
   > .logo{
-    background: $red;
+    background: $blue;
     width: 75px;
     height: 75px;
     border-radius: 50%;
@@ -50,7 +49,7 @@ body {
   }
 
   a {
-    color: #000;
+    color: white;
     font-weight: bold;
   }
 }
@@ -99,7 +98,7 @@ form {
 
 }
 
-.mainContent {
+.main-content {
   grid-row: span 2;
   grid-column: span 3;
   display: flex;
@@ -116,7 +115,7 @@ form {
   }
 }
 
-.userLogIn {
+.user-login {
   grid-row: span 1;
   grid-column: span 1;
   display: flex;
@@ -134,7 +133,6 @@ form {
   }
 }
 
-//Login page CSS below
 .user-new {
   grid-row: span 1;
   grid-column: span 4;

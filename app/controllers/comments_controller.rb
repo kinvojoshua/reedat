@@ -7,8 +7,6 @@ class CommentsController < ApplicationController
     @comment = Comment.create(permitted_params)
     if @comment.save
       redirect_to post_path(params[:post_id])
-    else
-
     end
   end
 

@@ -26,5 +26,11 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
+/public
 /config/database.yml
+
+.rubocop.yml
+.rubocop_todo.yml
+.vscode
+.gitignore
+.DS_Store

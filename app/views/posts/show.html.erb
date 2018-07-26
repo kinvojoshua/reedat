@@ -1,20 +1,110 @@
-<h1> COMMENT NOW! </h1>
+<%= stylesheet_link_tag 'comments', media: 'all' %>
+<nav class='top-nav'>
+  <ul class='navbar'>
+    <div class='logo'>
+      <li>
+        <%= link_to welcome_path do %>
+        <ion-icon class='logo-header' name="logo-reddit"></ion-icon>
+        <% end %>
+      </li>
+      <li><span class='logo-text'>r/<%= @post.user.username %></span></li>
+      <li><span class='post-body'><%= @post.body %></span></li>
+    </div>
+    <div class='list'>
+      <li><ion-icon name="trending-up"></ion-icon></li>
+      <li><ion-icon name="stats"></ion-icon></li>
+      <li><a href='#create-post'><ion-icon name="create" ></ion-icon></a></li>
+      <li class='search'>
+        <input class='search-box' type='text' placeholder='Search' />
+      </li>
+    </div>
+  </ul>
+</nav>
 
-<h2> <%= @post.user.username %>
-<h3> <%= @post.title %> </h3>
-<h5> <%= @post.body %> </h3>
-<% if @post.photos.url != nil %>
-  <%= image_tag @post.photos.big_thumb.url %>
-<% end %>
+<section class='main-content'>
+    <div class='content'>
+      <div class='side-bar'>
+        <ion-icon name="arrow-round-up" class='arrow-up'></ion-icon>
+        <span>14.5k</span>
+        <ion-icon name="arrow-round-down" class='arrow-down'></ion-icon>
+      </div>
+      <div class='inner-content'>
+        <div class='user'>
+          <div class='icon'></div>
+          <span class='thread'>r/hello</span>
+          <span class='posted-by'>Posted by u/<%= @post.user.username %> 1 hour ago </span>
+        </div>
 
-<%= form_with url: comments_path, local: true do |f| %>
-  <%= f.label :Comment %>
-  <%= f.text_field :body %>
-  <%= f.hidden_field :user_id, :value => @current_user.id %>
-  <%= f.hidden_field :post_id, :value => @post.id %>
-  <%= f.submit %>
-<% end %>
+        <div class='title'>
+          <%= @post.title %>
+        </div>
 
-<% @comments.each do |comment| %>
-    <%= render partial: 'comment', :locals => {:comment => comment, :user => @current_user} %>
+        <div class='picture'>
+          <% if @post.photos.url != nil %>
+          <%= image_tag @post.photos.thumb.url %>
+          <% else %>
+          <%= @post.body %>
+          <% end %>
+        </div>
+
+        <div class='options'>
+          <ul class='option-list'>
+            <li class='comment-bar'>
+              <ion-icon name="chatboxes"></ion-icon>
+              <span>
+                Comments
+              </span>
+            </li>
+            <li class='share'>
+              <ion-icon name="share-alt"></ion-icon>
+              <span>Share</span>
+            </li>
+            <li class='more'>
+              ...
+            </li>
+          </ul>
+        </div>
+      <% if signed_in? %>
+        <div class='comment-field'>
+          <%= form_with url: comments_path, local: true do |f| %>
+            <%= f.label :Comment %>
+            <%= f.text_area :body, placeholder: 'What are your thoughts?' %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.hidden_field :post_id, :value => @post.id %>
+            <%= f.submit 'Comment' %>
+          <% end %>
+        </div>
+        <hr>
+      </div>
+      <% end %>
+      <div class='comment-section'>
+        <% @comments.each do |comment| %>
+          <%= render partial: 'comment', :locals => {:comment => comment} %>
+        <% end %>
+      </div>
+    </div>
+</section>
+
+<section class='side-content'>
+  <div class='popular'>
+    <div class='head'></div>
+    <div class='description'>Welcome to the wholesome side of the internet!
+      This community is for those searching for a way to capture virtue on the internet.</div>
+    <div class='create-post'>
+      <a href='#create-post'><button class='create-button'>SUBSCRIBE</button> </a>
+    </div>
+  </div>
+</section>
+
+<script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
+
+<%= content_for :meta do %>
+  <meta property="og:title" content='<%= @post.title %>'/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="http://reedat.herokuapp.com/posts/<%=@post.id%>"/>
+  <% if @post.photos.url.present? %>
+    <meta property="og:image" content="<%= @post.photos.url %>"/>
+  <% else %>
+    <meta property="og:description" content= '<%= @post.body %>' />
+  <% end %>
 <% end %>
