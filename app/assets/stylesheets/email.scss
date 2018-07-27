@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
 $font-family: 'Roboto', sans-serif;
 $blue: #32a2d1;
-$grey: #E5E5E5; 
+$grey: #E5E5E5;
 $red: #B13232;
 $text-mute: #B2B2B2;
 
@@ -11,37 +10,32 @@ $text-mute: #B2B2B2;
   margin: 0;
 }
 
-body {
-  background-color: $grey;
-  padding: 0;
-  margin: 0;
-  height: 100vh;
-  font-family: 'Roboto', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .email-container {
-  background: white;
+  background-color: white;
+  padding: 0;
+  margin: 30px auto;
+  height: 40vh;
+  font-family: $font-family;
   width: 60%;
+  border-collapse: collapse;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+  border: 1px solid rgba(0,0,0,0.4);
   border-radius: 5px;
-  box-shadow: 0 5px 15px 0 rgba(0,0,0,.3);
 }
 
 .email-head {
   background: $blue;
   padding: 16px 14px;
-  display: flex;
-  justify-content: center;
+  display: table-cell;
   border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
   > .title {
     color: white;
     font-size: 30px;
-    line-height: 1.6;
+    line-height: 1;
    }
-  
+
   > .icon {
     font-size: 45px;
     color: white;
@@ -52,19 +46,17 @@ body {
 .email-body {
   padding: 20px 14px;
   height: 30vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  display: table-cell;
   > .welcome {
     font-size: 30px;
+    line-height: 1.3;
   }
   > .confirm-text {
     font-size: 14px;
+    line-height: 1.6;
   }
   > .confirm-link {
     color: black;
+    line-height: 1.6;
   }
 }
-
-
-
