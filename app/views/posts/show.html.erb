@@ -24,9 +24,20 @@
 <section class='main-content'>
     <div class='content'>
       <div class='side-bar'>
-        <ion-icon name="arrow-round-up" class='arrow-up'></ion-icon>
-        <span>14.5k</span>
-        <ion-icon name="arrow-round-down" class='arrow-down'></ion-icon>
+        <% if signed_in? %>
+          <%= link_to vote_path(post: @post, vote: true), method: :post do %>
+            <ion-icon name="arrow-round-up" class='arrow-up'></ion-icon>
+          <% end %>
+          <span> <%= @post.votes.where(upvote: true).count - @post.votes.where(upvote: false).count%></span>
+          <%= link_to vote_path(post: @post, vote: false), method: :post do %>
+            <ion-icon name="arrow-round-down" class='arrow-down'></ion-icon>
+          <% end %>
+
+        <% else %>
+          <ion-icon name="arrow-round-up" class='arrow-up'></ion-icon>
+          <span> <%= @post.votes.where(upvote: true).count - @post.votes.where(upvote: false).count%></span>
+          <ion-icon name="arrow-round-down" class='arrow-down'></ion-icon>
+        <% end %>
       </div>
       <div class='inner-content'>
         <div class='user'>
