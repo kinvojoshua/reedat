@@ -42,7 +42,7 @@
 </nav>
 
 <section class='main-content'>
-  <%= render partial: 'post', :locals => {:posts => @posts} %>
+  <%= render partial: './landing/post', :locals => {:posts => @posts} %>
 </section>
 
 <% if user_signed_in? %>
@@ -76,3 +76,5 @@
 </div>
 <% end %>
 <script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
+
+
