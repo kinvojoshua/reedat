@@ -1,12 +1,10 @@
 <%= stylesheet_link_tag 'landing', media: 'all' %>
 <nav class='top-nav'>
-<label for="menu" class="menu"><ion-icon size='large' name="menu"></ion-icon></label>
-<input type="checkbox" id="menu" role="button">
   <ul class='navbar'>
 
     <div class='logo'>
       <li><ion-icon class='logo-header' name="logo-reddit"></ion-icon></li>
-      <li><span class='logo-text'>REEDAT</span></li>
+      <li><span class='logo-text'>reedat</span></li>
     </div>
     <div class='list'>
       <li><ion-icon name="trending-up"></ion-icon></li>
@@ -29,13 +27,13 @@
     <% else %>
     <div class='button-group'>
       <li class='dropdown-nav'>
-        <%= link_to current_user.username, users_me_path,:class =>'', :method => :post %>
+        <%= link_to current_user.username, users_me_path,:class =>'', :method => :post %><ion-icon class='arrow-dropdown' name="arrow-dropdown"></ion-icon>
         <ul class='dropdown'>
         <li><%= link_to 'Logout', destroy_user_session_path, :class => '', :method => :delete%></li>
         </ul>
       </li>
       <li class='user-icon'><%= image_tag @identicon %></li>
-</div>
+    </div>
     <% end %>
   </ul>
 </nav>
