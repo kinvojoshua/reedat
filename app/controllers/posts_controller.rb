@@ -17,6 +17,7 @@ class PostsController < ApplicationController
 
   def search
     @posts = Post.where('title LIKE ?', "#{params[:title]}")
+    @identicon = Identicon.data_url_for current_user.username, 35
   end
 
   private

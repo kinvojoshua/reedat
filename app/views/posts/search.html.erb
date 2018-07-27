@@ -3,8 +3,9 @@
   <ul class='navbar'>
 
     <div class='logo'>
-      <li><ion-icon class='logo-header' name="logo-reddit"></ion-icon></li>
-      <li><span class='logo-text'>reedat</span></li>
+      <li><%= link_to welcome_path do %>
+      <ion-icon class='logo-header' name="logo-reddit"></ion-icon>
+      <% end %></li>
     </div>
     <div class='list'>
       <li><ion-icon name="trending-up"></ion-icon></li>
@@ -34,7 +35,7 @@
       </li>
       <li class='user-icon'><%= image_tag @identicon %></li>
       <li class='logout-icon'>
-        <%= link_to 'Logout', destroy_user_session_path, :class => '', :method => :delete%> 
+        <%= link_to 'Logout', destroy_user_session_path, :class => '', :method => :delete%>
       </li>
     </div>
     <% end %>
@@ -76,5 +77,3 @@
 </div>
 <% end %>
 <script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
-
-
