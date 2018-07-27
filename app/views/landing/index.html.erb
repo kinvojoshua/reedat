@@ -13,7 +13,12 @@
       <li><ion-icon name="stats"></ion-icon></li>
       <li><a href='#create-post'><ion-icon name="create" ></ion-icon></a></li>
       <li class='search'>
-        <input class='search-box' id='search-box' type='text' placeholder='Search' />
+        <!-- <input class='search-box' id='search-box' type='text' placeholder='Search' /> -->
+        <%= form_with url: posts_search_path, local: true do |f| %>
+          <%= f.text_field :title, :class => 'search-box'%>
+
+          <%= f.submit 'Search'%>
+        <% end %>
       </li>
     </div>
     <% if !user_signed_in? %>

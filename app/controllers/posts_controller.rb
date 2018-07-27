@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  @query = nil
   def create
     @post = Post.create(permitted_params)
     redirect_to welcome_path if @post.save
@@ -15,8 +16,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @post = Post.where('title LIKE ?', "#{params[:title]}")
-    render json: {status: ' Success', data: @post }
+    @posts = Post.where('title LIKE ?', "#{params[:title]}")
   end
 
   private
